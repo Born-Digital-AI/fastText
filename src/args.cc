@@ -38,6 +38,7 @@ Args::Args() {
   verbose = 2;
   pretrainedVectors = "";
   saveOutput = false;
+  noSaveVectors = false;
   seed = 0;
 
   qout = false;
@@ -186,6 +187,9 @@ void Args::parseArgs(const std::vector<std::string>& args) {
       } else if (args[ai] == "-saveOutput") {
         saveOutput = true;
         ai--;
+      } else if (args[ai] == "-noSaveVectors") {
+        noSaveVectors = true;
+        ai--;
       } else if (args[ai] == "-seed") {
         seed = std::stoi(args.at(ai + 1));
       } else if (args[ai] == "-qnorm") {
@@ -288,6 +292,8 @@ void Args::printTrainingHelp() {
       << pretrainedVectors << "]\n"
       << "  -saveOutput         whether output params should be saved ["
       << boolToString(saveOutput) << "]\n"
+      << "  -noSaveVectors      whether vectors should not be saved ["
+      << boolToString(noSaveVectors) << "]\n"
       << "  -seed               random generator seed  [" << seed << "]\n";
 }
 

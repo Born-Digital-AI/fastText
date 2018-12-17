@@ -7,6 +7,9 @@
 data
 fasttext
 result
+build/
+bin/
+i18n/
 website/node_modules/
 package-lock.json
 node_modules/
